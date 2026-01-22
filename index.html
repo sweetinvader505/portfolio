@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Jay-ar Collantes — Senior Full-stack Web Developer. 12+ years building fast, SEO-friendly websites and scalable WordPress/PHP/JavaScript solutions. Remote-ready." />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0b1220" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <title>Jay-ar Collantes — Senior Full-stack Web Developer</title>
+
+  <!-- Canonical: set your real URL after deploying -->
+  <link rel="canonical" href="https://sweetinvader505.github.io/portfolio/" />
+
+  <!-- Social cards -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Jay-ar Collantes — Senior Full-stack Web Developer" />
+  <meta property="og:description" content="13+ years: WordPress, PHP, JavaScript. Performance, SEO, maintainability. Remote-ready." />
+  <meta property="og:url" content="https://example.com/" />
+  <meta property="og:image" content="/images/jay.jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Jay-ar Collantes",
+    "jobTitle":"Senior Full-stack Web Developer",
+    "url":"https://example.com/",
+    "image":"https://example.com/profile.jpg",
+    "email":"mailto:you@email.com",
+    "sameAs":[
+      "https://www.linkedin.com/in/your-handle",
+      "https://github.com/your-handle"
+    ],
+    "knowsAbout":[
+      "WordPress","PHP","JavaScript","HTML5","CSS","Technical SEO",
+      "Performance Optimization","Accessibility","REST APIs"
+    ],
+    "workLocation":{"@type":"Place","name":"Philippines (Remote)"}
+  }
+  </script>
+
+  <style>
+    /* =============================
+       Clean UI, fast CSS
+       - no external assets
+       - system fonts
+       - minimal layout shifts
+    ============================== */
+
+    :root{
+      --bg:#ffffff;
+      --panel:#f6f7fb;
+      --card:#ffffff;
+      --text:#0b1220;
+      --muted:#475569;
+      --line:rgba(15,23,42,.12);
+      --accent:#0ea5e9;
+      --shadow:0 10px 25px rgba(15,23,42,.08);
+      --radius:16px;
+      --max:1120px;
+      --content:740px;
+    }
+
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0b1220;
+        --panel:#0f172a;
+        --card:#0c1426;
+        --text:#e8eef8;
+        --muted:#a7b4c7;
+        --line:rgba(255,255,255,.10);
+        --accent:#7dd3fc;
+        --shadow:0 16px 40px rgba(0,0,0,.35);
+      }
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+      line-height:1.55;
+      text-rendering:optimizeLegibility;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    a{color:inherit}
+    a:hover{color:var(--accent)}
+    a:focus-visible, button:focus-visible{
+      outline:3px solid var(--accent);
+      outline-offset:3px;
+      border-radius:12px;
+    }
+
+    .skip{
+      position:absolute; left:-999px; top:10px;
+      padding:10px 12px;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:12px;
+      z-index:999;
+    }
+    .skip:focus{left:10px}
+
+    .topbar{
+      position:sticky; top:0; z-index:20;
+      background:color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter:saturate(140%) blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .topbar-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:10px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .brand{
+      display:flex; flex-direction:column; gap:2px;
+      min-width:0;
+    }
+    .brand strong{
+      font-size:.98rem;
+      letter-spacing:-.01em;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .brand span{
+      font-size:.9rem;
+      color:var(--muted);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      justify-content:flex-end;
+    }
+    .nav a{
+      text-decoration:none;
+      padding:8px 10px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      font-weight:700;
+      font-size:.9rem;
+      color:var(--text);
+      background:color-mix(in srgb, var(--card) 80%, transparent);
+    }
+    .nav a:hover{border-color:color-mix(in srgb, var(--accent) 60%, var(--line))}
+
+    .container{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:18px 16px 56px;
+      display:grid;
+      grid-template-columns:360px 1fr;
+      gap:16px;
+      align-items:start;
+    }
+
+    @media (max-width: 980px){
+      .container{grid-template-columns:1fr}
+      .nav{display:none}
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    /* Sidebar profile card */
+    .profile{
+      position:sticky;
+      top:72px;
+      padding:16px;
+    }
+    @media (max-width: 980px){
+      .profile{position:static}
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns:72px 1fr;
+      gap:12px;
+      align-items:center;
+      margin-bottom:10px;
+    }
+
+    .avatar{
+      width:72px; height:72px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      object-fit:cover;
+      background:color-mix(in srgb, var(--panel) 70%, transparent);
+    }
+
+    h1{
+      margin:0;
+      font-size:1.25rem;
+      letter-spacing:-.02em;
+      line-height:1.2;
+    }
+
+    .role{
+      margin:6px 0 0;
+      font-weight:800;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .meta{
+      margin:4px 0 0;
+      color:var(--muted);
+      font-size:.92rem;
+    }
+
+    .summary{
+      margin:12px 0 0;
+      color:var(--muted);
+      font-size:.98rem;
+    }
+
+    .cta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:14px 0 6px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:transparent;
+      text-decoration:none;
+      font-weight:800;
+      font-size:.95rem;
+      white-space:nowrap;
+    }
+
+    .btn.primary{
+      background:var(--accent);
+      border-color:transparent;
+      color:#061018;
+    }
+
+    .mini{
+      margin-top:12px;
+      border-top:1px solid var(--line);
+      padding-top:12px;
+      display:grid;
+      gap:10px;
+    }
+
+    .mini h2{
+      margin:0;
+      font-size:.85rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+
+    .chips{display:flex; flex-wrap:wrap; gap:8px}
+    .chip{
+      border:1px solid var(--line);
+      background:color-mix(in srgb, var(--panel) 60%, transparent);
+      padding:6px 10px;
+      border-radius:999px;
+      font-weight:750;
+      font-size:.9rem;
+      color:var(--text);
+    }
+
+    /* Main content */
+    .content{
+      padding:18px;
+    }
+
+    .headline{
+      padding:2px 0 14px;
+      border-bottom:1px solid var(--line);
+      margin-bottom:14px;
+    }
+    .headline h2{
+      margin:0;
+      font-size:1.35rem;
+      letter-spacing:-.02em;
+      line-height:1.25;
+    }
+    .headline p{
+      margin:8px 0 0;
+      color:var(--muted);
+      max-width:var(--content);
+    }
+
+    section{
+      padding:16px 0;
+      border-bottom:1px solid var(--line);
+    }
+    section:last-child{border-bottom:none}
+
+    section > h3{
+      margin:0 0 10px;
+      font-size:1.05rem;
+      letter-spacing:-.01em;
+    }
+
+    .grid2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    @media (max-width: 760px){
+      .grid2{grid-template-columns:1fr}
+    }
+
+    .item{
+      border:1px solid var(--line);
+      background:color-mix(in srgb, var(--panel) 55%, transparent);
+      border-radius:14px;
+      padding:12px;
+    }
+
+    .item h4{
+      margin:0;
+      font-size:1rem;
+      letter-spacing:-.01em;
+    }
+    .item .sub{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-weight:700;
+      font-size:.92rem;
+    }
+    .item .desc{
+      margin:10px 0 0;
+      color:var(--muted);
+    }
+
+    ul.clean{
+      margin:10px 0 0;
+      padding-left:18px;
+      color:var(--muted);
+    }
+    ul.clean li{margin:6px 0}
+
+    .kpi{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:10px;
+    }
+    .kpi span{
+      border:1px dashed color-mix(in srgb, var(--line) 60%, var(--accent));
+      padding:7px 10px;
+      border-radius:12px;
+      font-weight:850;
+      font-size:.9rem;
+      color:var(--text);
+      background:color-mix(in srgb, var(--card) 70%, transparent);
+    }
+
+    .footer{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:22px 16px 36px;
+      color:var(--muted);
+      font-size:.92rem;
+    }
+
+    /* Print */
+    @media print{
+      :root{--bg:#fff;--card:#fff;--panel:#fff;--text:#000;--muted:#333;--line:#ddd;--shadow:none}
+      .topbar{position:static; border-bottom:0}
+      .nav,.cta{display:none}
+      .container{grid-template-columns:1fr}
+      .profile{position:static}
+      a{text-decoration:none}
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+
+  <!-- Top sticky bar with clean section nav (similar behavior pattern to the reference) -->
+  <div class="topbar" role="banner">
+    <div class="topbar-inner">
+      <div class="brand" aria-label="Identity">
+        <strong>Jay-ar Collantes</strong>
+        <span>Senior Full-stack Web Developer • Remote</span>
+      </div>
+
+      <nav class="nav" aria-label="In-page navigation">
+        <a href="#highlights">Highlights</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="card profile" aria-label="Profile">
+      <div class="hero">
+        <!-- Put profile.jpg beside this HTML file (recommend 600x600+) -->
+        <img
+          class="avatar"
+          src="images/jay.jpeg"
+          width="72"
+          height="72"
+          alt="Profile photo of Jay-ar Collantes"
+          loading="eager"
+          decoding="async"
+        />
+        <div>
+          <h1>Jay-ar Collantes</h1>
+          <p class="role">Senior Full-stack Web Developer</p>
+          <p class="meta">Philippines • Remote • 12+ years</p>
+        </div>
+      </div>
+
+      <p class="summary">
+        I build fast, SEO-friendly websites and web apps with a strong focus on performance, accessibility, and maintainability.
+        Deep experience in WordPress, PHP, JavaScript, and modernizing legacy stacks.
+      </p>
+
+      <div class="cta" role="group" aria-label="Primary actions">
+        <a class="btn primary" href="mailto:sweetinvader505@gmail.com">Email</a>
+        <a class="btn" href="https://www.linkedin.com/in/jaycollantes/" rel="me noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/sweetinvader505" rel="me noopener">GitHub</a>
+      </div>
+
+      <div class="mini">
+        <h2>Core Focus</h2>
+        <div class="chips" aria-label="Core focus chips">
+          <span class="chip">Performance (Core Web Vitals)</span>
+          <span class="chip">Technical SEO</span>
+          <span class="chip">WordPress (ACF/CPT)</span>
+          <span class="chip">PHP</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">Clean architecture</span>
+        </div>
+
+        <h2>Availability</h2>
+        <div class="chips" aria-label="Availability">
+          <span class="chip">Remote</span>
+          <span class="chip">Full-time / Contract</span>
+          <span class="chip">GMT+8 friendly</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main id="content" class="card content" aria-label="Resume content">
+      <header class="headline">
+        <h2>Senior-level web development for scalable, high-performance sites and apps.</h2>
+        <p>
+          I specialize in shipping production-ready WordPress/PHP/JavaScript builds that load fast, rank well,
+          and remain maintainable long after launch—plus refactoring legacy code safely.
+        </p>
+      </header>
+
+      <section id="highlights" aria-labelledby="highlights-title">
+        <h3 id="highlights-title">Project highlights</h3>
+
+        <div class="grid2">
+          <article class="item">
+            <h4>Performance & Core Web Vitals</h4>
+            <p class="sub">WordPress • PHP • JS • Asset strategy</p>
+            <p class="desc">Optimized LCP/CLS/INP by reducing bloat, improving delivery, and implementing caching + image strategy.</p>
+            <div class="kpi" aria-label="Sample results">
+              <span>↓ Load time</span>
+              <span>↑ Lighthouse</span>
+              <span>↓ JS bloat</span>
+            </div>
+          </article>
+
+          <article class="item">
+            <h4>SEO-friendly builds</h4>
+            <p class="sub">Semantic HTML • Schema • IA</p>
+            <p class="desc">Structured content for search engines and humans: clean headings, internal linking, metadata, and JSON-LD.</p>
+            <div class="kpi" aria-label="Sample results">
+              <span>↑ Crawlability</span>
+              <span>↑ CTR-ready snippets</span>
+              <span>Accessible by default</span>
+            </div>
+          </article>
+
+          <article class="item">
+            <h4>Custom WordPress development</h4>
+            <p class="sub">ACF • CPT • Custom themes/plugins</p>
+            <p class="desc">Built flexible CMS experiences with reusable components and safe input handling.</p>
+            <div class="kpi" aria-label="Sample results">
+              <span>Reusable templates</span>
+              <span>Clean admin UX</span>
+              <span>Secure forms</span>
+            </div>
+          </article>
+
+          <article class="item">
+            <h4>Legacy modernization</h4>
+            <p class="sub">jQuery → modular JS (incremental)</p>
+            <p class="desc">Reduced bugs and improved maintainability through refactors without breaking ongoing releases.</p>
+            <div class="kpi" aria-label="Sample results">
+              <span>↓ Regressions</span>
+              <span>↑ Maintainability</span>
+              <span>Faster iteration</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="experience" aria-labelledby="experience-title">
+        <h3 id="experience-title">Work experience</h3>
+
+        <div class="grid2">
+          <article class="item">
+            <h4>LEE SYSTEM TECHNOLOGY VENTURES / PHP Developer</h4>
+            <p class="sub">Office Based • 2011 — 2012</p>
+            <ul class="clean">
+              <li>Planning, development, launch, and ongoing improvements.</li>
+              <li>Owned performance and technical SEO strategy across multiple sites.</li>
+              <li>Using PHP as the server scripting language, we developed an inventory system for a client in Manila, showcasing my expertise.</li>
+            </ul>
+          </article>
+
+          <article class="item">
+            <h4>CYBERTEGIC INC. / WordPress/Front-End Developer</h4>
+            <p class="sub">Office Based • 2012 — 2013</p>
+            <ul class="clean">
+              <li>Delivered responsive web pages and CMS integrations.</li>
+              <li>Implemented custom features with PHP, JavaScript, and jQuery.</li>
+              <li>I am responsible for updating the client's website with the latest front-end technologies, ensuring its relevance and cutting-edge functionality.</li>
+            </ul>
+          </article>
+          <article class="item">
+            <h4>ISME / WordPress/Back-End Development</h4>
+            <p class="sub">Remote • 2014 — 2015</p>
+            <ul class="clean">
+              <li>Built and maintained custom WordPress features using PHP, ACF, and custom post types</li>
+              <li>Optimized site performance, security, and database-driven functionality</li>
+              <li>Integrated APIs and back-end logic to support dynamic content and business workflows</li>
+            </ul>
+          </article>
+          <article class="item">
+            <h4>SJNC / Front-End Developer</h4>
+            <p class="sub">Remote • 2015 — 2016</p>
+            <ul class="clean">
+              <li>Developed responsive, accessible user interfaces using HTML, CSS, and JavaScript</li>
+              <li>Translated UI/UX designs into performant, cross-browser front-end code</li>
+              <li>Improved page speed and usability through front-end optimization and best practices</li>
+            </ul>
+          </article>
+          <article class="item">
+            <h4>SIGWAY HIGGS - Full Stack Web Development</h4>
+            <p class="sub">Remote • 2016 — 2019</p>
+            <ul class="clean">
+              <li>Developed end-to-end web features using PHP, JavaScript, and WordPress</li>
+              <li>Designed and maintained front-end and back-end integrations for dynamic applications</li>
+              <li>Improved performance, security, and scalability across web platforms</li>
+            </ul>
+          </article>
+          <article class="item">
+            <h4>VIRTUALOMBUDSMAN — Full Stack Web Developer / Server Administrator</h4>
+            <p class="sub">Remote • 2022 - 2023</p>
+            <ul class="clean">
+              <li>Developed and maintained full-stack web applications using PHP, JavaScript, and WordPress</li>
+              <li>Managed server infrastructure, deployments, security, and uptime</li>
+              <li>Optimized application performance, reliability, and system scalability</li>
+            </ul>
+          </article>
+          <article class="item">
+            <h4>VIRTUALOMBUDSMAN — Full Stack Web Developer / Server Administrator</h4>
+            <p class="sub">Remote • 2019 — 2022 / 2023 — 2026</p>
+            <ul class="clean">
+              <li>Built and maintained full-stack web applications using PHP, JavaScript, and WordPress</li>
+              <li>Implemented scalable back-end logic and responsive front-end interfaces</li>
+              <li>Optimized performance, security, and maintainability across web systems</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- <section id="projects" aria-labelledby="projects-title">
+        <h3 id="projects-title">Selected projects</h3>
+
+        <div class="grid2">
+          <article class="item">
+            <h4>Project / Client Name</h4>
+            <p class="sub">WordPress • PHP • JavaScript • SEO</p>
+            <p class="desc">
+              Short description (what you built + who it served). Add outcomes (speed, rankings, leads, revenue, etc.).
+            </p>
+            <p class="desc"><strong>Links:</strong>
+              <a href="https://example.com" rel="noopener">Live</a> •
+              <a href="https://github.com/your-handle" rel="noopener">Code</a>
+            </p>
+          </article>
+
+          <article class="item">
+            <h4>Internal Tool / Dashboard</h4>
+            <p class="sub">PHP • REST • JavaScript</p>
+            <p class="desc">
+              Built an internal tool to reduce manual work and increase reliability. Add “time saved” or “error reduction”.
+            </p>
+            <p class="desc"><strong>Links:</strong>
+              <a href="https://example.com" rel="noopener">Case study</a>
+            </p>
+          </article>
+        </div>
+      </section> -->
+
+      <section id="skills" aria-labelledby="skills-title">
+        <h3 id="skills-title">Skills</h3>
+
+        <div class="grid2">
+          <article class="item">
+            <h4>Core stack</h4>
+            <div class="chips" aria-label="Core skills">
+              <span class="chip">HTML5</span>
+              <span class="chip">CSS</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">PHP</span>
+              <span class="chip">WordPress</span>
+              <span class="chip">jQuery</span>
+              <span class="chip">React</span>
+              <span class="chip">Headless WordPress</span>
+              <span class="chip">TypeScript</span>
+              <span class="chip">Python</span>
+              <span class="chip">CI/CD basics</span>
+            </div>
+          </article>
+
+          <article class="item">
+            <h4>Senior strengths</h4>
+            <div class="chips" aria-label="Strengths">
+              <span class="chip">Performance</span>
+              <span class="chip">Technical SEO</span>
+              <span class="chip">Accessibility</span>
+              <span class="chip">Refactoring</span>
+              <span class="chip">Debugging</span>
+              <span class="chip">Maintainability</span>
+            </div>
+          </article>
+
+          <!-- <article class="item">
+            <h4>Recommended upgrades (add as you learn)</h4>
+            <p class="desc">
+              These align with abundant high-paying remote roles (you can add them gradually).
+            </p>
+            <div class="chips" aria-label="Recommended skills">
+              <span class="chip">TypeScript</span>
+              <span class="chip">React</span>
+              <span class="chip">Next.js</span>
+              <span class="chip">Testing basics</span>
+              <span class="chip">CI/CD basics</span>
+              <span class="chip">Headless WordPress</span>
+            </div>
+          </article> -->
+
+          <article class="item">
+            <h4>Tools</h4>
+            <div class="chips" aria-label="Tools">
+              <span class="chip">Git</span>
+              <span class="chip">Chrome DevTools</span>
+              <span class="chip">Lighthouse</span>
+              <span class="chip">PageSpeed</span>
+              <span class="chip">Caching/CDN workflows</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="education" aria-labelledby="education-title">
+        <h3 id="education-title">Education & certifications</h3>
+
+        <div class="grid2">
+          <article class="item">
+            <h4>Education</h4>
+            <p class="desc">Bachelor of Science in Computer Science</p>
+            <p class="desc">University of Northern Philippines — 2009</p>
+          </article>
+
+          <!-- <article class="item">
+            <h4>Certifications</h4>
+            <ul class="clean">
+              <li>Add certifications (optional).</li>
+              <li>Consider: performance/SEO-related certs if relevant.</li>
+            </ul>
+          </article> -->
+        </div>
+      </section>
+
+      <section id="contact" aria-labelledby="contact-title">
+        <h3 id="contact-title">Contact</h3>
+
+        <article class="item">
+          <p class="desc" style="margin:0">
+            <strong>Email:</strong> <a href="mailto:sweetinvader505">sweetinvader505@gmail.com</a><br />
+            <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/jaycollantes/" rel="noopener">linkedin.com/in/jaycollantes</a><br />
+            <strong>GitHub:</strong> <a href="https://github.com/sweetinvader505" rel="noopener">github.com/sweetinvader505</a><br />
+            <strong>Location:</strong> Philippines (Remote)
+          </p>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <small>© <span id="y"></span> Jay-ar Collantes • Semantic HTML • Performance-first CSS</small>
+    <script>
+      // Tiny non-blocking enhancement
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+  </footer>
+</body>
+</html>
